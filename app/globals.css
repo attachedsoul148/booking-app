@@ -8,20 +8,28 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.leaflet-bottom,
+.leaflet-control,
+.leaflet-pane,
+.leaflet-top {
+  z-index: 0 !important;
+}
+
+@layer components{
+   .orangeBtn {
+    @apply text-white bg-[#fd5c61] rounded-lg font-bold py-3 w-full hover:bg-[#b14043] transition-colors px-5 flex
+    relative justify-center items-center disabled:cursor-not-allowed disabled:opacity-50
+  }
+   .outlinedBtn { 
+    @apply text-black border-2 border-black bg-white rounded-lg font-bold py-3 w-full hover:bg-neutral-100 
+    transition-colors px-5 flex relative justify-center items-center disabled:cursor-not-allowed disabled:opacity-50
+  }
+  * {
+    @apply scrollbar-none
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.rdrMonths { 
+  align-items: center !important;
 }
+
